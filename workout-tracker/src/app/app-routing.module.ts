@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { WorkoutFormComponent } from './workout-form/workout-form.component';
+import { WorkoutListComponent } from './workout-list/workout-list.component';
+import { WorkoutChartComponent } from './workout-chart/workout-chart.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
-  // Add other routes as needed
+  { path: '', redirectTo: '/workouts', pathMatch: 'full' },
+  { path: 'workouts', component: WorkoutListComponent },
+  { path: 'add', component: WorkoutFormComponent },
+  { path: 'charts', component: WorkoutChartComponent }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes) // Ensure forRoot() is used in the root module
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
